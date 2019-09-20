@@ -1,8 +1,11 @@
 <html>
 <script language="javascript">
-var connection = new WebSocket('ws://localhost:8080/testing');
-source.onmessage = function(event) {
-document.getElementById("result").innerHTML = "<h3>Voltagem medida: " +
+var connection = new WebSocket('ws://localhost:8080/temperature');
+connection.onopen = function(){
+  console.log('Connection open!');
+}
+connection.onmessage = function(event) {
+  document.getElementById("result").innerHTML = "<h3>Voltagem medida: " +
 event.data + "</h3>";
 };
 </script>
